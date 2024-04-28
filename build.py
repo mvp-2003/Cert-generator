@@ -9,7 +9,7 @@ template_image = Image.open(certificate_template)
 draw = ImageDraw.Draw(template_image)
 
 # Specify the font and size
-font = ImageFont.truetype(font_path, size=24)
+font = ImageFont.truetype(font_path, size=36)
 
 # List of names to add to the certificate
 names_list = ["Alice"]
