@@ -12,7 +12,7 @@ font = ImageFont.truetype(font_path, size=84)
 names_list = ['Ossama Mehmood', 'Maadeha shaikh ', 'Piyush ', 'Abdul Rehman', 'Shakeel Ahmad']
 
 # Coordinates where the name should be placed
-x_position = 560
+x_position = 525
 y_position = 400
 
 # Create the Certificates directory if it doesn't exist
