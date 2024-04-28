@@ -9,7 +9,7 @@ font_path = "Font.ttf"
 font = ImageFont.truetype(font_path, size=84)
 
 # List of names to add to the certificate
-names_list = ["Alice", "Ossama", "Bob", "Charlie", "David"]
+names_list = ['Ossama Mehmood', 'Maadeha shaikh ', 'Piyush ', 'Abdul Rehman', 'Shakeel Ahmad']
 
 # Coordinates where the name should be placed
 x_position = 560
