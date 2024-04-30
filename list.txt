@@ -1,1 +1,0 @@
-names_list = ['Ossama Mehmood', 'Maadeha shaikh ', 'Piyush ', 'Abdul Rehman', 'Shakeel Ahmad']
