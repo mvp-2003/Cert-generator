@@ -12,15 +12,14 @@ def generate_certificate(certificate_template, names_file, directory):
     if not os.path.exists('Certificates'):
         os.makedirs('Certificates')
 
-    names_list = open(names_file, 'r')
-
-    for name in names_list:
-        template_image = Image.open(certificate_template)
-        draw = ImageDraw.Draw(template_image)
-        draw.text((width, height), name, font=font, fill="black")
-        template_image.save(f"Certificates/certificate_{name}.jpg")
-
-    names_list.close()
+    with open(names_file, 'r') as names_list:
+        for name in names_list:
+            name = name.strip()
+            template_image = Image.open(certificate_template)
+            draw = ImageDraw.Draw(template_image)
+            text_width, text_height = draw.textsize(name, font=font)
+            draw.text(((width - text_width) / 2, (height - text_height) / 2), name, font=font, fill="black")
+            template_image.save(f"Certificates/certificate_{name}.jpg")
 
     shutil.make_archive('Certificates', 'zip', 'Certificates')
     shutil.move('Certificates.zip', directory)
