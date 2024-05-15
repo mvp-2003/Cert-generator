@@ -6,9 +6,9 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    gap: 20px;
 }
 
-#file-name {
-    margin-top: 20px;
+#file-name, #file-name-2 {
     text-align: center;
 }
