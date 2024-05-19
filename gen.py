@@ -15,7 +15,7 @@ def frontpage():
         cert_image.save(cert_image_path)
         names.save(names_path)
 
-        generate_certificate(cert_image_path, names_path, directory)
+        generate_certificate(cert_image_path, names_path)
 
     return render_template('home.html')
 

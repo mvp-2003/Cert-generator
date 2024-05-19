@@ -2,7 +2,7 @@ import os
 import shutil
 from PIL import Image, ImageDraw, ImageFont
 
-def generate_certificate(certificate_template, names_file, directory):
+def generate_certificate(certificate_template, names_file):
     font_path = "arial.ttf"
     font = ImageFont.truetype(font_path, size=84)
 
