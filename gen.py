@@ -9,7 +9,6 @@ def frontpage():
     if request.method == 'POST':
         cert_image = request.files['cert_image']
         names = request.files['names']
-        directory = request.form['directory']
 
         cert_image_path = os.path.join('uploads', cert_image.filename)
         names_path = os.path.join('uploads', names.filename)
@@ -19,3 +18,6 @@ def frontpage():
         generate_certificate(cert_image_path, names_path, directory)
 
     return render_template('home.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
