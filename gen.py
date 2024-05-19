@@ -8,10 +8,6 @@ def frontpage():
     if request.method == 'POST':
         cert_image = request.files['cert_image']
         names = request.files['names']
-
-        cert_image.save(cert_image.filename)
-        names.save(names.filename)
-
         generate_certificate(cert_image.filename, names.filename)
 
     return render_template('home.html')
