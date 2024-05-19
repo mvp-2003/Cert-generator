@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from name_generator.build import generate_certificate
-import os
 
 app = Flask(__name__)
 
@@ -10,12 +9,10 @@ def frontpage():
         cert_image = request.files['cert_image']
         names = request.files['names']
 
-        cert_image_path = os.path.join('uploads', cert_image.filename)
-        names_path = os.path.join('uploads', names.filename)
-        cert_image.save(cert_image_path)
-        names.save(names_path)
+        cert_image.save(cert_image.filename)
+        names.save(names.filename)
 
-        generate_certificate(cert_image_path, names_path)
+        generate_certificate(cert_image.filename, names.filename)
 
     return render_template('home.html')
 
