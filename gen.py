@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file
 from name_generator.build import generate_certificate
-import os
+import io
 
 app = Flask(__name__)
 
@@ -17,8 +17,13 @@ def frontpage():
             return "No selected file", 400
 
         try:
-            generate_certificate(cert_image, names)
-            return send_file('Certificates.zip', as_attachment=True)
+            zip_buffer = generate_certificate(cert_image, names)
+            return send_file(
+                zip_buffer,
+                as_attachment=True,
+                download_name='Certificates.zip',
+                mimetype='application/zip'
+            )
         except Exception as e:
             return f"An error occurred: {e}", 500
 
