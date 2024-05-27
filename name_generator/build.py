@@ -8,8 +8,7 @@ font_path = "name_generator/Font.ttf"
 
 def generate_certificate(certificate_template, names_file):
     try:
-        font_size = 84
-        min_font_size = 24
+        font_size = 96
         font = ImageFont.truetype(font_path, size=font_size)
 
         certificate_template = Image.open(certificate_template.stream)
@@ -31,14 +30,11 @@ def generate_certificate(certificate_template, names_file):
             text_width = bbox[2] - bbox[0]
             text_height = bbox[3] - bbox[1]
 
-            while text_width > width * 0.8 and font_size > min_font_size:
-                font_size -= 2
-                font = ImageFont.truetype(font_path, size=font_size)
-                bbox = draw.textbbox((0, 0), name, font=font)
-                text_width = bbox[2] - bbox[0]
-                text_height = bbox[3] - bbox[1]
+            if text_width > width * 0.8:
+                text_x = (width - text_width) * 0.1
+            else:
+                text_x = (width - text_width) / 2
 
-            text_x = (width - text_width) / 2
             text_y = (height - text_height) / 2
 
             draw.text((text_x, text_y), name, font=font, fill="black")
