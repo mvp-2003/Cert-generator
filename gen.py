@@ -28,6 +28,3 @@ def frontpage():
             return f"An error occurred: {e}", 500
 
     return render_template('home.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
